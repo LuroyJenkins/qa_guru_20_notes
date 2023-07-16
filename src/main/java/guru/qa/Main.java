@@ -3,6 +3,7 @@ package guru.qa;
 import guru.qa.front.AuthFrontend;
 import guru.qa.front.FrontContainer;
 import guru.qa.front.NotesFrontend;
+import guru.qa.repository.FileNotesRepository;
 import guru.qa.repository.FileUserRepository;
 import guru.qa.repository.NotesRepository;
 import guru.qa.repository.UserRepository;
@@ -24,7 +25,9 @@ public class Main {
                         new Base64PasswordService()
                 ),
                 new NotesFrontend(
-                        new NotesRepository.MockNotesRepository()
+                        new FileNotesRepository(
+                            Path.of("notes.csv")
+                        )
                 )
         ).start(new UserSession());
     }

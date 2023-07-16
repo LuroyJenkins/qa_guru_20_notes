@@ -10,6 +10,14 @@ public class Note {
         this.text = text;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getText() {
+        return text;
+    }
+
     @Override
     public String toString() {
         return "Note{text='" + text + "'}";
